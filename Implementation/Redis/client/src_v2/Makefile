@@ -12,7 +12,7 @@ install:	install_common install_deps KVImplRedisHiredisVip.o $(LIB_NAME)
 	cp -f bin/$(LIB_NAME) $(INSTALL_PATH)/lib
 
 install_deps:
-	cd hiredis-vip && make
+	cd hiredis-vip && make && make install
 
 install_common:
 	cd ../../../../Interface/ && make
