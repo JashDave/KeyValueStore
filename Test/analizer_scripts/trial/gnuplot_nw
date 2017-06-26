@@ -1,0 +1,13 @@
+#set term 
+#set size
+
+f1=system("awk 'NR==6 {print}' input_gnufiles")
+
+set datafile separator ","
+
+set xlabel "Thread Count"
+set ylabel "Avg. Network utilization (KBps)"
+
+plot f1 using 1:3 with lines title "Received (Rx)",\
+"" using 1:4 with lines title "Transfered (Tx)"
+pause -1

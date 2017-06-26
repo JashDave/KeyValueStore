@@ -1,0 +1,3 @@
+[submodule "Implementation/Redis/client/src_v2/hiredis-vip"]
+	path = Implementation/Redis/client/src_v2/hiredis-vip
+	url = https://github.com/vipshop/hiredis-vip.git

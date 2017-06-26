@@ -1,0 +1,24 @@
+#Requriements
+1. sar (System Activity Monitor) on both client and server
+   (sudo apt-get install sysstat)
+2. golang on server system (https://golang.org/doc/install)
+
+
+#On Server
+Start Coordinator
+Start Server
+Start Helper/src/server_system_controler.go by
+			go run server_system_controler.go ServerIPAddress:8091
+
+
+#On client
+Go to Implementation/RAMCloud/client
+Edit Makefile PATH_TO_RAMCLOUD
+Do make
+Do sudo make install
+Go to Test/src
+Do make
+run ./LoadTestMultiThreaded.o ServerIPAddress
+Note: LoadTestMultiThreaded looks for coordinator at fixed port 11100
+
+

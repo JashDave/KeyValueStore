@@ -1,0 +1,6 @@
+set datafile separator ","
+set xlabel "Thread Count"
+set ylabel "Avg. ReadOperations/Second"
+#plot '../src/PerformanceData/Client/RAMCloud/2016-09-15/2/2KB/stats.csv' using 1:(1e6/$5) with lines title "Avg. Opr/sec"
+plot '../src/PerformanceData/Client/RAMCloud/2016-09-15/2/2KB/stats.csv' using 1:($9/300) with lines title "Avg. Opr/sec" #300 Seconds
+pause -1

@@ -1,0 +1,5 @@
+,Throughput
+RAMCloud,9159
+LevelDB,20616
+Redis,23667
+Memcached,22747

@@ -1,0 +1,21 @@
+set term postscript eps color 
+set output 'Client_Load_YCSB-B.eps'
+
+set title "Client library overhead"
+f3="client_load_YCSB-B.csv"
+set datafile separator ","
+
+
+set key ins vert
+set key left top
+set xlabel ""
+set ylabel "Avg. operations per second"
+
+set yrange [0:25000]
+set style data histogram
+set style histogram cluster gap 1
+set style fill solid border -1
+set boxwidth 0.9
+set xtic rotate by 0 scale 0
+
+plot f3 using 2:xtic(1) ti col
