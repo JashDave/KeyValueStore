@@ -9,7 +9,7 @@ else
     sdir=$sdirp"_$i"
   	rm -r $sdir
   	mkdir -p $sdir
-  	port=$((i+sport))
+  	port=$((i+sport-1))
   	sed -e "s/IPADDRESS/$2/g" -e "s/PORTNUM/$port/g" redis.conf > $sdir/redis.conf
   done
 fi
