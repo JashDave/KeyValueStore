@@ -22,12 +22,15 @@ Once the installations is successful, you may start the particular key-value sto
 \begin{itemize}
 \item \textbf{LevelDB}\\
 Run the run\_server.sh script from  ``KeyValueStore/Implementation/LevelDB/server/" folder, with socket address as parameter (provide the required permissions). For eg.\\
-``bash run\_server.sh 10.129.26.154:8090"
+``bash run\_server.sh 10.129.26.154:8090"\\
+Configuration string for client is IP:PORT for eg. ``10.129.26.154:8090".
 
 \item \textbf{Memcached}\\
 To start Memcached server go to folder\\
 ``KeyValueStore/Implementation/Memcached/server/memcached-1.4.35/" and run the command \\
-``./memcached -p [PORT\_NUMBER] -m [MEMORY\_IN\_MB]"
+``./memcached -p [PORT\_NUMBER] -m [MEMORY\_IN\_MB]"\\
+Configuration string for client is list of servers prefixed with ``--SERVER=" and separated by space. For eg.\\
+"--SERVER=10.129.26.154:12000 --SERVER=10.129.28.207:12345"
 
 \item \textbf{Redis}\\
 Go to ``KeyValueStore/Implementation/Redis/server/" folder.
@@ -42,7 +45,8 @@ and run the command\\
 where IP:PORT must be replaced with server IP and PORT numbers.
 Note that Redis cluster needs at least 3 server instances, thus you must run at least three servers.
 For more information please refer \\
-``https://redis.io/topics/cluster-tutorial"
+``https://redis.io/topics/cluster-tutorial"\\
+Configuration string for client is any one server's IP:PORT for eg.\\ ``10.129.26.154:8000".
 \end{itemize}
 
 This section only eases the installation of server by proving installation scripts, but you can always install, configure and start the required server your own way. The only thing you must ensure is that the server version must be same or it must be compilable with the version we have used.
