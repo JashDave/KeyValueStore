@@ -21,7 +21,7 @@ int main(){
   KVData<string> ret;
 
   /* Establish connection to key-value store*/
-  kr.bind("10.129.26.154:8090");
+  kr.bind("127.1.1.1:8090");
 
   /* Register few requests to be executed */
   kr.put<int,string>(1, "One", "MyTable1");

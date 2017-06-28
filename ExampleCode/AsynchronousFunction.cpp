@@ -37,7 +37,7 @@ int main(){
   KVStore<int, string> ks;
 
   /* Establish connection to key-value store */
-  ks.bind("10.129.26.154:8090","MyTable");
+  ks.bind("127.1.1.1:8090","MyTable");
 
   waitmtx.lock();
   for(int i = 1; i <= OPR_COUNT; i++){
