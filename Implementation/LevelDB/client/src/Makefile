@@ -7,9 +7,9 @@ LIB_NAME = libkvs_leveldb.a
 G++ = g++ -std=c++11
 
 
-all:	KVImplLevelDB.o $(LIB_NAME) install
+all: install_common	KVImplLevelDB.o $(LIB_NAME) install
 
-install:	install_common KVImplLevelDB.o $(LIB_NAME)
+install: KVImplLevelDB.o $(LIB_NAME)
 	cp -f bin/$(LIB_NAME) $(INSTALL_PATH)/lib
 
 

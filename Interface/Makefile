@@ -11,6 +11,7 @@ all:	install_deps init install
 
 
 install_deps:
+	sudo apt-get install g++
 	sudo apt-get install libboost-serialization-dev
 
 init:
