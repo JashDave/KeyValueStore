@@ -1,4 +1,0 @@
-Configuration,Workload,LevelDB,Redis,Memcached
-2 VMs ,YCSB- A,,111784,120848
-4 VMs ,YCSB- A,,188034,171617
-6 VMs ,YCSB- A,,253134,216472

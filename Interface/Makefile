@@ -3,7 +3,7 @@
 # Dependencies
 
 INSTALL_PATH = /usr/local
-LIB_NAME = libkvstore_v2.a
+LIB_NAME = libkvstore.a
 G++ = g++ -O3 -std=c++11 -pthread
 BIN = bin
 
@@ -16,15 +16,15 @@ install_deps:
 init:
 	mkdir -p $(BIN)
 
-install:	$(BIN)/KVStoreHeader_v2.o $(BIN)/$(LIB_NAME)
+install:	$(BIN)/KVStoreHeader.o $(BIN)/$(LIB_NAME)
 	cp -f $(BIN)/$(LIB_NAME) $(INSTALL_PATH)/lib
 	mkdir -p $(INSTALL_PATH)/include/kvstore
 	cp -f *.h $(INSTALL_PATH)/include/kvstore/
 
-$(BIN)/KVStoreHeader_v2.o:	KVStoreHeader_v2.h KVStoreHeader_v2.cpp KVImpl.h
-	$(G++) -c KVStoreHeader_v2.cpp -o $(BIN)/KVStoreHeader_v2.o
+$(BIN)/KVStoreHeader.o:	KVStoreHeader.h KVStoreHeader.cpp KVImpl.h
+	$(G++) -c KVStoreHeader.cpp -o $(BIN)/KVStoreHeader.o
 
-$(BIN)/$(LIB_NAME):	$(BIN)/KVStoreHeader_v2.o
+$(BIN)/$(LIB_NAME):	$(BIN)/KVStoreHeader.o
 	ar -cvq $(BIN)/$(LIB_NAME) $(BIN)/*.o
 
 clean:

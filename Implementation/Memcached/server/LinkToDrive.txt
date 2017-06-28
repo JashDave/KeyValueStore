@@ -1,5 +1,0 @@
-latest :
-https://www.dropbox.com/s/h1z7w1qm9m70i3i/latest?dl=0
-
-libmemcached-1.0.18.tar.gz :
-https://www.dropbox.com/s/79mnqsex41a9de9/libmemcached-1.0.18.tar.gz?dl=0

@@ -2,17 +2,17 @@
 
  To compile with:
  //leveldb
- g++ -std=c++11 -O3 KVRequest.cpp -lkvstore_v2 -lboost_serialization -pthread -lkvs_leveldb_v2
+ g++ -std=c++11 -O3 KVRequest.cpp -lkvstore -lboost_serialization -pthread -lkvs_leveldb
 
  //Redis
- g++ -std=c++11 -O3 KVRequest.cpp -lkvstore_v2 -lboost_serialization -pthread -lkvs_redis_v2
+ g++ -std=c++11 -O3 KVRequest.cpp -lkvstore -lboost_serialization -pthread -lkvs_redis
 
  //Memcached
- g++ -std=c++11 -O3 KVRequest.cpp -lkvstore_v2 -lboost_serialization -pthread -lkvs_memcached_v2 -lmemcached
+ g++ -std=c++11 -O3 KVRequest.cpp -lkvstore -lboost_serialization -pthread -lkvs_memcached -lmemcached
 */
 
 #include <iostream>
-#include <kvstore/KVStoreHeader_v2.h>
+#include <kvstore/KVStoreHeader.h>
 using namespace std;
 using namespace kvstore;
 

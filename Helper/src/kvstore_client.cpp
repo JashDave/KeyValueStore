@@ -43,7 +43,6 @@ inline uint32_t batoi(char *ba){
 class KVStoreClient{
 private:
   uint32_t num_bytes;
-  // char op_code;
   int portnum;
   string ip;
   int sockfd, n;
@@ -80,7 +79,6 @@ public:
       fprintf(stderr, "ERROR connecting\n");
       exit(1);
     }
-    //printf("Connected to server\n");
   }
 
   void send(vector<string> &v){
@@ -97,10 +95,8 @@ public:
       data = new char[sum];
     }
     data[idx]=(char)len;
-    // cout<<"Data[idx]:"<<(int)data[idx]<<" Len:"<<len<<endl;
     idx++;
     for(int i=0;i<len;i++){
-      // cout<<":"<<(uint32_t)v[i].size()<<endl;
       itoba((uint32_t)v[i].size(),data+idx);
       idx+=4;
       strncpy(data+idx,v[i].c_str(),v[i].size());
@@ -125,7 +121,6 @@ public:
             fprintf(stderr, "ERROR writing to socket %d\n",errno);
             exit(1);
         }
-        //		break;
       }
       sent+=n;
     }
@@ -145,7 +140,6 @@ public:
     while(sumn!=sz){
       n = read(sockfd,inputbuf+sumn,sz-sumn);
       sumn+=n;
-      //printf("SZ:%d  N:%d\n",sz,n);
       if (n < 0)
       {
         if ((errno == EAGAIN) || (errno == EINTR) || (errno == EPERM)) {
@@ -166,7 +160,6 @@ public:
       while(sumn!=sz){
         n = read(sockfd,inputbuf+sumn,sz-sumn);
         sumn+=n;
-        //printf("SZ:%d  N:%d\n",sz,n);
         if (n < 0)
         {
           if ((errno == EAGAIN) || (errno == EINTR) || (errno == EPERM)) {
@@ -184,7 +177,6 @@ public:
       while(sumn!=sz){
         n = read(sockfd,inputbuf+sumn,sz-sumn);
         sumn+=n;
-        //printf("SZ:%d  N:%d\n",sz,n);
         if (n < 0)
         {
           if ((errno == EAGAIN) || (errno == EINTR) || (errno == EPERM)) {
@@ -198,88 +190,8 @@ public:
         }
       }
       v[i]=string(inputbuf,sz);
-      // cout<<v[i]<<endl;
     }
     return v;
   }
 };
-
-
-// int main(int argc, char *argv[])
-// {
-//   // char chx[4];
-//   // for(int i=0;i<1024;i++){
-//   //   itoba(i,chx);
-//   //   cout<<batoi(chx)<< "  ";
-//   // }
-//
-//   // std::vector<string> v;
-//   // v.push_back("CreateTable");
-//   // v.push_back("shreeganesh");
-//   // string byte10="1234567890";
-//   // string mb1="";
-//   // for(long long i=0;i<100*100;i++){
-//   //   mb1+=byte10;
-//   // }
-//   // mb1+="abcd";
-//   // cout<<"MB1:"<<mb1<<endl;
-//   // v.push_back(mb1);
-//   // v.push_back("Pratik");
-//   //   KVStoreClient k("127.1.1.1",8090);
-//   //   for(int i=0;i<1;i++){
-//   //   k.send(v);
-//   //   std::vector<string> r=k.receive();
-//   //   int l=r.size();
-//   //   for(int i=0;i<l;i++){
-//   //     printf("%s\n",r[i].c_str());
-//   //     cout<<r[i]<<" sz:"<<r[i].size()<<"\n";
-//   //   }
-//   //
-//   //   for(int i=88;i<100;i++){
-//   //     cout<<int(r[2][i]);
-//   //   }
-//   //
-//   //   cout<<endl;
-//   //sleep(1);
-//
-//   std::vector<string> v1;
-//   v1.push_back("CreateTable");
-//   v1.push_back("shreeganesh");
-//   //
-//   // std::vector<string> v2;
-//   // v2.push_back("Put");
-//   // v2.push_back("shreeganesh");
-//   // v2.push_back("Om Nama Shivay");
-//
-//   std::vector<string> v3;
-//   v3.push_back("Get");
-//   v3.push_back("shreeganesh");
-//
-//
-//   KVStoreClient k("127.1.1.1",8090);
-//   k.send(v1);
-//   std::vector<string> r=k.receive();
-//   int l=r.size();
-//   for(int i=0;i<l;i++){
-//     cout<<r[i]<<" sz:"<<r[i].size()<<"\n";
-//   }
-//   // sleep(1);
-//   // k.send(v2);
-//   // r=k.receive();
-//   // l=r.size();
-//   // for(int i=0;i<l;i++){
-//   //   cout<<r[i]<<" sz:"<<r[i].size()<<"\n";
-//   // }
-//   // sleep(1);
-//   k.send(v3);
-//   r=k.receive();
-//   l=r.size();
-//   for(int i=0;i<l;i++){
-//     cout<<r[i]<<" sz:"<<r[i].size()<<"\n";
-//   }
-//
-//   //  }
-//   return 0;
-// }
-
 #endif

@@ -55,7 +55,7 @@ namespace kvstore {
 		*/
 		bool bind(string connection,string tablename);
 
-		
+
 		KVData<string> get(string const& key);
 		KVData<string> put(string const& key,string const& val);
 		KVData<string> del(string const& key);

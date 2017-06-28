@@ -2,13 +2,10 @@ package main
 
 import (
   "os"
-  // "errors"
   "os/exec"
   "fmt"
   "net"
-  // "strconv"
   "time"
-  // "strings"
 )
 
 func temp_includes(){
@@ -44,7 +41,6 @@ func writeStrings(strarr []string,conn net.Conn){
   for i:=0;i<alen;i++ {
     sum += (len(strarr[i])+4)
   }
-  //fmt.Println("Sum",sum)
   bytearr := make([]byte,sum)
   idx := 0
   bytearr[0] = byte(alen)
@@ -106,7 +102,6 @@ func syncSystem(cmd string) ([]byte,error) {
 func asyncSystem(cmd string){
   go func(cmd string){
     _, err := exec.Command("sh","-c",cmd).Output()
-    //fmt.Println(string(out))
     if err!=nil{
       fmt.Println("Error executing :",cmd,"\n",err)
     }
@@ -114,8 +109,6 @@ func asyncSystem(cmd string){
 }
 
 func handleClient(conn net.Conn) {
-  // var cl Client
-  //i := 0
   for {
     strarr,err := readStrings(conn)
     if err!=nil {
@@ -130,12 +123,6 @@ func handleClient(conn net.Conn) {
 
 
 func main() {
-  // asyncSystem("sar -o tempop -u 1");
-  // time.Sleep(10000 * time.Millisecond);
-  // asyncSystem("pkill -SIGINT sar");
-  // time.Sleep(5000 * time.Millisecond);
-  // fmt.Println("Done");
-
   socket := os.Args[1] //Read form command line arugment
   ln, err := net.Listen("tcp",socket)
 

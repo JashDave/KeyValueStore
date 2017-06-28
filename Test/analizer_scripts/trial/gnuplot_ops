@@ -1,6 +1,0 @@
-f1=system("awk 'NR==1 {print}' input_gnufiles")
-set datafile separator ","
-set xlabel "Thread Count"
-set ylabel "Avg. ReadOperations/Second"
-plot f1 using 1:($9/180) with lines title "Avg. Opr/sec" #300 Seconds
-pause -1

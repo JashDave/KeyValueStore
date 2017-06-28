@@ -12,9 +12,9 @@
 \maketitle
 
 \section{Client Installation}
-To install a client for a particular key-value store go to path \\ ``KeyValueStore/Implementation/(Your required key-value store)/client/src\_v2/" and run the make file with required permissions. Note that default target for make file is to compile and install. Also note that it may download few dependencies so make sure you have working internet connection.
+To install a client for a particular key-value store go to path \\ ``KeyValueStore/Implementation/(Your required key-value store)/client/src/" and run the make file with required permissions. Note that default target for make file is to compile and install. Also note that it may download few dependencies so make sure you have working internet connection.
 
-Installing the client installs a common library kvs\_kvstore\_v2 and key-value store specific libraries vis kvs\_redis\_v2 for Redis, kvs\_memcached\_v2 and memcached for Memcached and kvs\_leveldb\_v2 for LevelDB. You must link to these libraries while producing your final binary. You must also link boost\_serialization and pthread library.
+Installing the client installs a common library kvs\_kvstore and key-value store specific libraries vis kvs\_redis for Redis, kvs\_memcached and memcached for Memcached and kvs\_leveldb for LevelDB. You must link to these libraries while producing your final binary. You must also link boost\_serialization and pthread library.
 
 \section{Server Installation}
 To install a server for a particular key-value store go to path \\ ``KeyValueStore/Implementation/(Your required key-value store)/server/" run the install\_server.sh script with required permission. Note that it may download few dependencies so make sure you have working internet connection.
@@ -56,7 +56,7 @@ This section only eases the installation of server by proving installation scrip
 
 
 \section{Client Interface Description}
-To use the interface you must import the header file "kvstore/KVStoreHeader\_v2.h". This interface is implemented in the ``kvstore" namespace. Most of the interface is designed using templates thus making it generic enough. KeyType, ValType, Function and Argument are the repsentative template types. Note that the classes used for KeyType and ValueType must implement boost library's serialization function.
+To use the interface you must import the header file "kvstore/KVStoreHeader.h". This interface is implemented in the ``kvstore" namespace. Most of the interface is designed using templates thus making it generic enough. KeyType, ValType, Function and Argument are the repsentative template types. Note that the classes used for KeyType and ValueType must implement boost library's serialization function.
 
 
 To keep the design simple, interface exposes only required features of any data store. Also to make it generic enough it uses template parameters, thus the interface is also independent of changes in LTE-EPC code. It consists of the following classes:
@@ -156,7 +156,7 @@ It returns the operation type of the function registered on the given index as a
 \subsection{KVStore}
 \begin{lstlisting}
 #include <iostream>
-#include <kvstore/KVStoreHeader_v2.h>
+#include <kvstore/KVStoreHeader.h>
 using namespace std;
 using namespace kvstore;
 
@@ -205,7 +205,7 @@ int main(){
 \subsection{KVRequest}
 \begin{lstlisting}
 #include <iostream>
-#include <kvstore/KVStoreHeader_v2.h>
+#include <kvstore/KVStoreHeader.h>
 using namespace std;
 using namespace kvstore;
 
@@ -284,7 +284,7 @@ int main(){
 For using the custom data type as key or value you must implement the serialize function of boost serialization library. For more details on boost serialization please refer ``http://www.boost.org/doc/libs/1\_64\_0/libs/serialization/doc/tutorial.html". Example code below shows a simple use case of custom data types.
 \begin{lstlisting}
 #include <iostream>
-#include <kvstore/KVStoreHeader_v2.h>
+#include <kvstore/KVStoreHeader.h>
 using namespace std;
 using namespace kvstore;
 
@@ -374,7 +374,7 @@ Note that none of the classes in kvstore namespace are thread safe. Thus you mus
 \begin{lstlisting}
 #include <iostream>
 #include <mutex>
-#include <kvstore/KVStoreHeader_v2.h>
+#include <kvstore/KVStoreHeader.h>
 using namespace std;
 using namespace kvstore;
 
