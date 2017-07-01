@@ -20,7 +20,7 @@ int main(){
   KVStore<int,string> ks;
 
   /* Establish connection to key-value store*/
-  bool succ = ks.bind("127.1.1.1:8090","MyTable");
+  bool succ = ks.bind("tcp:host=10.129.28.186,port=11100","MyTable");
   if(succ){
     cout<<"Connection successful."<<endl;
   } else {

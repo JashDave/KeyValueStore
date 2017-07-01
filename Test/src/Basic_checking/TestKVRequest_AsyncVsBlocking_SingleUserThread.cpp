@@ -26,7 +26,7 @@
 #include <iostream>
 #include <vector>
 #include <cassert>
-#include <kvstore/KVStoreHeader_v2.h>
+#include <kvstore/KVStoreHeader.h>
 
 using namespace std;
 using namespace kvstore;
