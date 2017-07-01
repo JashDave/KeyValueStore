@@ -1,2 +1,0 @@
-RAMCloud Version : 7cba5e2de394d1fbd62965f2cff367431eb12c11
-Update the GNUmakefile for 'GLIBCXX_USE_CXX11_ABI' to 'yes'
